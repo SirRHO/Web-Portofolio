@@ -1,14 +1,15 @@
 const lightboxModal = document.getElementById('lightboxModal');
 const lightboxImage = document.getElementById('lightboxImage');
 
-// Ambil semua link gambar di carousel
 const carouselLinks = document.querySelectorAll('#projectCarousel a');
 
 carouselLinks.forEach(link => {
-link.addEventListener('click', function() {
-    lightboxImage.src = this.href; // set image modal sesuai yang diklik
+    link.addEventListener('click', function (event) {
+        event.preventDefault(); // ⬅️ INI YANG KURANG
+        lightboxImage.src = this.href;
+    });
 });
-});
+
 
 window.addEventListener('DOMContentLoaded', () => {
     const content = document.querySelector('.project-detail-content');
