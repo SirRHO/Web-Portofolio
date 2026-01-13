@@ -1,0 +1,221 @@
+/* ===== GLOBAL PROJECT DETAIL ===== */
+body.project-detail {
+    background-color: #0A0A0A;
+    color: #ffffff;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+/* ===== BUTTON BACK ===== */
+.project-detail .btn-outline-secondary {
+    color: #CCFF00;
+    border-color: #CCFF00;
+    transition: all 0.3s ease;
+}
+
+.project-detail .btn-outline-secondary:hover {
+    background-color: #CCFF00;
+    color: #0A0A0A;
+}
+
+/* ===== HEADINGS ===== */
+.project-detail h1 {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.project-detail h4 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* ===== TEXT ===== */
+.project-detail p {
+    color: #dcdcdc;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* Muted text */
+.project-detail .text-muted {
+    color: #aaaaaa !important;
+}
+
+/* ===== BADGES ===== */
+.project-detail .badge {
+    background-color: rgba(204, 255, 0, 0.1);
+    color: #CCFF00;
+    border: 1px solid #CCFF00;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+}
+
+/* ===== IMAGE ===== */
+.project-detail img {
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== LIST ===== */
+.project-detail ul {
+    padding-left: 18px;
+}
+
+.project-detail ul li {
+    margin-bottom: 10px;
+    color: #e0e0e0;
+    position: relative;
+}
+
+/* Custom bullet */
+.project-detail ul li::marker {
+    color: #CCFF00;
+}
+/* Carousel tetap tinggi tapi gambar tampil penuh */
+#projectCarousel .carousel-item img {
+    width: 100%;
+    height: 400px;
+
+    object-fit: contain;
+    /* tampil seluruh gambar tanpa crop */
+    object-position: center;
+    border-radius: 8px;
+    /* opsional */
+    background-color: #0A0A0A;
+    /* optional, untuk area kosong */
+}
+/* Ubah ikon navigasi carousel menjadi hitam */
+#projectCarousel .carousel-control-prev-icon,
+#projectCarousel .carousel-control-next-icon {
+    filter: invert(50%);
+    /* default putih → hitam */
+    background-color: transparent;
+    /* pastikan tidak ada latar */
+    box-shadow: none;
+    /* hilangkan shadow */
+}
+
+/* ===== RESPONSIVE ===== */
+/* ===== MOBILE / ANDROID SPECIFIC ===== */
+@media (max-width: 480px) {
+
+    /* Kontainer utama */
+    .project-detail-content {
+        padding: 15px 10px;
+    }
+
+    /* Heading */
+    .project-detail h1 {
+        font-size: 1.4rem;
+        text-align: center;
+        line-height: 1.3;
+    }
+
+    .project-detail h4 {
+        font-size: 1rem;
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 8px;
+    }
+
+    /* Paragraph */
+    .project-detail p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    /* Badges */
+    .project-detail .badge {
+        font-size: 0.7rem;
+        padding: 5px 8px;
+    }
+
+    /* Jobdesk list */
+    .project-detail ul li {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+    }
+
+    /* Carousel */
+    #projectCarousel {
+        margin-bottom: 15px;
+    }
+
+    #projectCarousel .carousel-item img {
+        height: auto;
+        max-height: 250px;
+        /* menjaga proporsi gambar di layar kecil */
+        object-fit: cover;
+    }
+
+    /* Tombol Kembali */
+    .project-detail .btn-outline-secondary {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+
+    /* Carousel control icon lebih kecil */
+    #projectCarousel .carousel-control-prev-icon,
+    #projectCarousel .carousel-control-next-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Modal lightbox */
+    .modal-dialog {
+        max-width: 90%;
+    }
+
+    .modal-body img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* ===== ANIMASI MASUK HALAMAN PROJECT ===== */
+.project-detail-content {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.project-detail-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Optional: animasi carousel, jobdesk, dsb */
+.project-detail .carousel,
+.project-detail h1,
+.project-detail p,
+.project-detail h4,
+.project-detail ul {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.project-detail.visible-all .carousel,
+.project-detail.visible-all h1,
+.project-detail.visible-all p,
+.project-detail.visible-all h4,
+.project-detail.visible-all ul {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body {
+    overflow-x: hidden;
+    /* hilangkan scroll horizontal */
+}
+
+.project-detail {
+    overflow: hidden;
+    /* sembunyikan scroll vertikal sementara animasi */
+}
+
+.project-detail-content.visible {
+    overflow: visible;
+    /* setelah animasi selesai, biarkan scroll normal */
+}
