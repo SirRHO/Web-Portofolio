@@ -1,3 +1,4 @@
+// Smooth scroll pakai wrapper
 const wrapper = document.querySelector('.content-wrapper');
 const navbarHeight = 70; // samakan dengan CSS
 
@@ -7,7 +8,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
         const targetId = this.getAttribute('href');
         const target = document.querySelector(targetId);
-
         if (!target) return;
 
         const targetPosition =
@@ -20,33 +20,30 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     });
 });
 
+// Collapse button
 document.querySelectorAll('.collapse-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-        btn.classList.toggle('active'); // Untuk rotate icon
+        btn.classList.toggle('active');
         const content = btn.nextElementSibling;
-        content.style.display = content.style.display === "block" ? "none" : "block";
+        content.style.display =
+            content.style.display === "block" ? "none" : "block";
     });
 });
 
+// Switch text project
 function showText(type, button) {
     const textA = document.getElementById('text-a');
     const textB = document.getElementById('text-b');
     const textC = document.getElementById('text-c');
 
-    // sembunyikan semua
-    textA.classList.add('d-none');
-    textB.classList.add('d-none');
-    textC.classList.add('d-none');
+    [textA, textB, textC].forEach(el => {
+        el.classList.add('d-none');
+        el.classList.remove('visible');
+    });
 
-    // hapus animasi visible dari semua
-    textA.classList.remove('visible');
-    textB.classList.remove('visible');
-    textC.classList.remove('visible');
+    document.querySelectorAll('.custom-btn')
+        .forEach(btn => btn.classList.remove('active'));
 
-    // reset tombol active
-    document.querySelectorAll('.custom-btn').forEach(btn => btn.classList.remove('active'));
-
-    // tampilkan div sesuai type
     if (type === 'a') {
         textA.classList.remove('d-none');
         textA.classList.add('visible');
@@ -58,29 +55,43 @@ function showText(type, button) {
         textC.classList.add('visible');
     }
 
-    // set tombol yang diklik aktif
     button.classList.add('active');
 }
 
-// Animasi awal page
+// Animasi awal page + default project
 window.addEventListener('DOMContentLoaded', () => {
     const wrapper = document.querySelector('.content-wrapper');
-    wrapper.classList.add('visible'); // animasi section
+    const navbar = document.querySelector('.navbar');
 
-    // tampilkan default Project
+    if (wrapper) wrapper.classList.add('visible');
+
     const projects = document.getElementById('text-a');
-    projects.classList.remove('d-none');
-    projects.classList.add('visible');
-    document.querySelector('.custom-btn').classList.add('active');
-});
+    if (projects) {
+        projects.classList.remove('d-none');
+        projects.classList.add('visible');
+    }
 
-document.querySelectorAll('[data-bs-target="#imageModal"]').forEach(img => {
-    img.addEventListener('click', function () {
-        const modalImage = document.getElementById('modalImage');
-        modalImage.src = this.getAttribute('data-img');
+    const firstBtn = document.querySelector('.custom-btn');
+    if (firstBtn) firstBtn.classList.add('active');
+
+    // === NAVBAR SCROLL FIX ===
+    if (!wrapper || !navbar) return;
+
+    wrapper.addEventListener('scroll', () => {
+        if (wrapper.scrollTop > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     });
 });
 
-
-
-
+// Modal image
+document.querySelectorAll('[data-bs-target="#imageModal"]').forEach(img => {
+    img.addEventListener('click', function () {
+        const modalImage = document.getElementById('modalImage');
+        if (modalImage) {
+            modalImage.src = this.getAttribute('data-img');
+        }
+    });
+});

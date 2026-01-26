@@ -1,60 +1,66 @@
 /* ===== GLOBAL PROJECT DETAIL ===== */
 body.project-detail {
-    background-color: #0A0A0A;
-    color: #ffffff;
+    background-color: #9BB9BB;
+    /* BG utama */
+    color: #18231B;
     font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
 /* ===== BUTTON BACK ===== */
 .project-detail .btn-outline-secondary {
-    color: #CCFF00;
-    border-color: #CCFF00;
+    color: #18231B;
+    border-color: #5A868A;
+    background-color: #FFFFFF;
     transition: all 0.3s ease;
 }
 
 .project-detail .btn-outline-secondary:hover {
-    background-color: #CCFF00;
-    color: #0A0A0A;
+    background-color: #5A868A;
+    color: #FFFFFF;
 }
 
 /* ===== HEADINGS ===== */
 .project-detail h1 {
     font-weight: 700;
     letter-spacing: 0.5px;
+    color: #18231B;
 }
 
 .project-detail h4 {
     margin-top: 20px;
     margin-bottom: 10px;
     font-weight: 600;
+    color: #18231B;
 }
 
 /* ===== TEXT ===== */
 .project-detail p {
-    color: #dcdcdc;
+    color: #FFFFFF;
     line-height: 1.7;
     text-align: justify;
 }
 
 /* Muted text */
 .project-detail .text-muted {
-    color: #aaaaaa !important;
+    color: #3F5F63 !important;
 }
 
 /* ===== BADGES ===== */
 .project-detail .badge {
-    background-color: rgba(204, 255, 0, 0.1);
-    color: #CCFF00;
-    border: 1px solid #CCFF00;
+    background-color: #5A868A;
+    color: #FFFFFF;
+    border: 1px solid #4F7F84;
     padding: 8px 12px;
     font-size: 0.85rem;
+    border-radius: 999px;
 }
 
 /* ===== IMAGE ===== */
 .project-detail img {
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(90, 134, 138, 0.4);
+    box-shadow: 0 10px 25px rgba(24, 35, 27, 0.15);
+    background-color: #FFFFFF;
 }
 
 /* ===== LIST ===== */
@@ -64,43 +70,44 @@ body.project-detail {
 
 .project-detail ul li {
     margin-bottom: 10px;
-    color: #e0e0e0;
+    color: #FFFFFF;
     position: relative;
 }
 
 /* Custom bullet */
 .project-detail ul li::marker {
-    color: #CCFF00;
+    color: #18231B;
 }
-/* Carousel tetap tinggi tapi gambar tampil penuh */
+
+/* ===== CAROUSEL ===== */
 #projectCarousel .carousel-item img {
     width: 100%;
     height: 400px;
-
     object-fit: contain;
-    /* tampil seluruh gambar tanpa crop */
+    /* tampil full tanpa crop */
     object-position: center;
-    border-radius: 8px;
-    /* opsional */
-    background-color: #0A0A0A;
-    /* optional, untuk area kosong */
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    /* layer beda dari bg */
 }
-/* Ubah ikon navigasi carousel menjadi hitam */
+
+/* Ikon navigasi carousel */
 #projectCarousel .carousel-control-prev-icon,
 #projectCarousel .carousel-control-next-icon {
-    filter: invert(50%);
-    /* default putih → hitam */
-    background-color: transparent;
-    /* pastikan tidak ada latar */
-    box-shadow: none;
-    /* hilangkan shadow */
+    filter: invert(35%);
+    /* abu gelap */
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
 }
 
 /* ===== RESPONSIVE ===== */
 /* ===== MOBILE / ANDROID SPECIFIC ===== */
 @media (max-width: 480px) {
 
-    /* Kontainer utama */
+/* Kontainer utama */
     .project-detail-content {
         padding: 15px 10px;
     }
@@ -172,6 +179,7 @@ body.project-detail {
         height: auto;
     }
 }
+
 
 /* ===== ANIMASI MASUK HALAMAN PROJECT ===== */
 .project-detail-content {
