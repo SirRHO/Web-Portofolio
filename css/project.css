@@ -213,13 +213,3 @@ body.project-detail {
     transform: translateY(0);
 }
 
-body {
-    overflow-x: hidden;
-    /* hilangkan scroll horizontal */
-}
-
-.project-detail {
-    overflow-y: auto;
-        /* ✅ BUKAN hidden */
-        overflow-x: hidden;
-}
