@@ -514,6 +514,22 @@ section {
     cursor: pointer;
 }
 
+.skill-title {
+    margin-top: 28px;
+    margin-bottom: 14px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1F2D3D;
+    /* kontras di bg D0E2E6 */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skill-title i {
+    color: #0B5ED7;
+}
+
 /* Card Sertifikat */
 #text-c .card-cert {
     border-radius: 14px;
